@@ -173,7 +173,15 @@ customize_prompt() {
 }
 
 restart_system() {
-    sudo reboot
+    while true; do
+        read -p "## Reiniciar sistema agora? (y/n): " resposta
+        if [ "$resposta" == "y" ]; then
+            echo "Reiniciando..."
+            sudo reboot
+        elif [ "$resposta" == "n" ]; then
+            echo "Saindo..."
+        else
+            echo "Resposta invalida, insira apenas 'y' ou 'n'"
 }
 
 main
