@@ -40,12 +40,14 @@ main() {
             6) configure_flameshot ;;
             7) wordlist_tasks ;;
             # 8) add_user ;;
-            9) customize_prompt ;;
+            # 9) customize_prompt ;;
             10) restart_system ;;
             11) echo "Saindo do programa."; exit ;;
             *) echo "Opção inválida. Por favor, selecione uma opção válida." ;;
         esac
 
+        echo
+        echo
         read -p "Deseja realizar outra operação? (y/n): " continuar
         if [ "$continuar" != "y" ]; then
             break
@@ -136,6 +138,7 @@ wordlist_tasks() {
     wget https://github.com/d3fudd/Wordlists/releases/download/release/best_big.txt
     mv best_common.txt /usr/share/wordlists/dirb/best_common.txt
     mv best_big.txt /usr/share/wordlists/dirb/best_big.txt
+    rm best_common.txt best_big.txt
     echo
 }
 
@@ -191,54 +194,54 @@ configure_flameshot() {
 #     sudo usermod -aG sudo purpl3john
 # }
 
-customize_prompt() {
-    clear
-    echo '# Customizando prompt'
-    echo '# Customizando prompt'
-    echo '# Customizando prompt'
+# customize_prompt() {
+#     clear
+#     echo '# Customizando prompt'
+#     echo '# Customizando prompt'
+#     echo '# Customizando prompt'
 
-    # echo 'PS1="%B%F{magenta}%n%f%b %F{158}%~:%f "' >> ~/.zshrc
-    echo ' [+] Personalizando aliases no ~/.zshrc...'
+#     # echo 'PS1="%B%F{magenta}%n%f%b %F{158}%~:%f "' >> ~/.zshrc
+#     echo ' [+] Personalizando aliases no ~/.zshrc...'
 
-    # Categorias
-    echo '# Aliases para navegação' >> ~/.zshrc
-    echo '# ----------------------' >> ~/.zshrc
+#     # Categorias
+#     echo '# Aliases para navegação' >> ~/.zshrc
+#     echo '# ----------------------' >> ~/.zshrc
 
-    # Navegação
-    echo 'alias ..="cd .."' >> ~/.zshrc
-    echo 'alias ...="cd ../../../"' >> ~/.zshrc
-    echo 'alias ....="cd ../../../../"' >> ~/.zshrc
-    echo 'alias .....="cd ../../../../"' >> ~/.zshrc
-    echo 'alias l.="ls -d .* --color=auto"' >> ~/.zshrc
-    echo 'alias ll="ls -la"' >> ~/.zshrc
-    echo 'alias ls="ls --color=auto"' >> ~/.zshrc
+#     # Navegação
+#     echo 'alias ..="cd .."' >> ~/.zshrc
+#     echo 'alias ...="cd ../../../"' >> ~/.zshrc
+#     echo 'alias ....="cd ../../../../"' >> ~/.zshrc
+#     echo 'alias .....="cd ../../../../"' >> ~/.zshrc
+#     echo 'alias l.="ls -d .* --color=auto"' >> ~/.zshrc
+#     echo 'alias ll="ls -la"' >> ~/.zshrc
+#     echo 'alias ls="ls --color=auto"' >> ~/.zshrc
 
-    echo '' >> ~/.zshrc
+#     echo '' >> ~/.zshrc
 
-    # Pesquisa
-    echo '# Aliases para pesquisa' >> ~/.zshrc
-    echo '# --------------------' >> ~/.zshrc
-    echo 'alias grep="grep --color=auto"' >> ~/.zshrc
-    echo 'alias egrep="egrep --color=auto"' >> ~/.zshrc
-    echo 'alias fgrep="fgrep --color=auto"' >> ~/.zshrc
+#     # Pesquisa
+#     echo '# Aliases para pesquisa' >> ~/.zshrc
+#     echo '# --------------------' >> ~/.zshrc
+#     echo 'alias grep="grep --color=auto"' >> ~/.zshrc
+#     echo 'alias egrep="egrep --color=auto"' >> ~/.zshrc
+#     echo 'alias fgrep="fgrep --color=auto"' >> ~/.zshrc
 
-    echo '' >> ~/.zshrc
+#     echo '' >> ~/.zshrc
 
-    # Outros
-    echo '# Outros aliases' >> ~/.zshrc
-    echo '# --------------' >> ~/.zshrc
-    echo 'alias bc="bc -l"' >> ~/.zshrc
-    echo 'alias mount="mount |column -t"' >> ~/.zshrc
-    echo 'alias h="history"' >> ~/.zshrc
-    echo 'alias j="jobs -l"' >> ~/.zshrc
-    echo 'alias vi="vim"' >> ~/.zshrc
-    echo 'alias svi="sudo vi"' >> ~/.zshrc
-    echo 'alias vis="vim \"+set si\""' >> ~/.zshrc
-    echo 'alias edit="vim"' >> ~/.zshrc
-    echo 'alias me="echo $(ifconfig eth0 | grep \"inet \" | cut -b 9- | cut -d\" \" -f2)"' >> ~/.zshrc
+#     # Outros
+#     echo '# Outros aliases' >> ~/.zshrc
+#     echo '# --------------' >> ~/.zshrc
+#     echo 'alias bc="bc -l"' >> ~/.zshrc
+#     echo 'alias mount="mount |column -t"' >> ~/.zshrc
+#     echo 'alias h="history"' >> ~/.zshrc
+#     echo 'alias j="jobs -l"' >> ~/.zshrc
+#     echo 'alias vi="vim"' >> ~/.zshrc
+#     echo 'alias svi="sudo vi"' >> ~/.zshrc
+#     echo 'alias vis="vim \"+set si\""' >> ~/.zshrc
+#     echo 'alias edit="vim"' >> ~/.zshrc
+#     echo 'alias me="echo $(ifconfig eth0 | grep \"inet \" | cut -b 9- | cut -d\" \" -f2)"' >> ~/.zshrc
 
-    echo
-}
+#     echo
+# }
 
 restart_system() {
     clear
