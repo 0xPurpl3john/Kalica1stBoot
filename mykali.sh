@@ -55,6 +55,7 @@ main() {
 }
 
 update_repositories() {
+    clear
     echo '# Update repositories'
     echo '# Update repositories'
     echo '# Update repositories'
@@ -64,6 +65,7 @@ update_repositories() {
 }
 
 install_programs() {
+    clear
     echo '# Instalando aplicativos'
     echo '# Instalando aplicativos'
     echo '# Instalando aplicativos'
@@ -117,6 +119,7 @@ install_programs() {
 }
 
 wordlist_tasks() {
+    clear
     echo '# Configurando WORDLISTS'
     echo '# Configurando WORDLISTS'
     echo '# Configurando WORDLISTS'
@@ -137,6 +140,7 @@ wordlist_tasks() {
 }
 
 change_background() {
+    clear
     echo '# Configurando background'
     echo '# Configurando background'
     echo '# Configurando background'
@@ -147,6 +151,7 @@ change_background() {
 }
 
 disable_ipv6() {
+    clear
     echo '# Configurando IPV6'
     echo '# Configurando IPV6'
     echo '# Configurando IPV6'
@@ -157,6 +162,7 @@ disable_ipv6() {
 }
 
 configure_terminal() {
+    clear
     echo '# Configurando terminal'
     echo '# Configurando terminal'
     echo '# Configurando terminal'
@@ -166,6 +172,7 @@ configure_terminal() {
 }
 
 configure_flameshot() {
+    clear
     echo '# Configurando flameshot'
     echo '# Configurando flameshot'
     echo '# Configurando flameshot'
@@ -178,12 +185,14 @@ configure_flameshot() {
 }
 
 # add_user() {
+#     clear
 #     sudo adduser purpl3john
 #     echo 'purpl3john:ChangeME' | sudo chpasswd
 #     sudo usermod -aG sudo purpl3john
 # }
 
 customize_prompt() {
+    clear
     echo '# Customizando prompt'
     echo '# Customizando prompt'
     echo '# Customizando prompt'
@@ -232,6 +241,7 @@ customize_prompt() {
 }
 
 restart_system() {
+    clear
     read -p "## Reiniciar sistema agora? (y/n): " resposta
     if [ "$resposta" == "y" ]; then
         echo "Reiniciando..."
