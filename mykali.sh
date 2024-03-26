@@ -25,7 +25,7 @@ main() {
         echo "6) Configurar o Flameshot"
         echo "7) Tarefas de lista de palavras"
         # echo "8) Adicionar usuário"
-        echo "9) Personalizar o prompt"
+        # echo "9) Personalizar o prompt"
         echo "10) Reiniciar o sistema"
         echo "11) Sair do programa"
 
@@ -59,8 +59,7 @@ main() {
 update_repositories() {
     clear
     echo '# Update repositories'
-    echo '# Update repositories'
-    echo '# Update repositories'
+    echo
 
     sudo apt update
     sudo apt upgrade
@@ -69,24 +68,30 @@ update_repositories() {
 install_programs() {
     clear
     echo '# Instalando aplicativos'
-    echo '# Instalando aplicativos'
-    echo '# Instalando aplicativos'
+    echo
 
     echo ' [+] Instalando flameshot, vim, tilix, tmux e zsh..'
     sudo apt install -y flameshot vim tilix tmux zsh
     echo
 
-    echo ' [+] Instalando Python 3.10.0, Python 3.9.0, Python 2.8.0, Python 2.7.0...'
-    for version in 3.10.0 3.9.0 2.8.0 2.7.0; do
-        curl -O "https://www.python.org/ftp/python/$version/Python-$version.tgz"
-        tar xzf "Python-$version.tgz"
-        rm "Python-$version.tgz"
-        cd "Python-$version" || continue
-        ./configure --enable-optimizations
-        make altinstall
-        cd ..
-        rm -rf "Python-$version"
-    done
+    echo ' [+] Instalando Python 3.10.0 e Python 2.7.0...'
+    curl -O "https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz"
+    tar xzf "Python-3.10.0.tgz"
+    rm "Python-3.10.0.tgz"
+    cd "Python-3.10.0" || exit
+    ./configure --enable-optimizations
+    make altinstall
+    cd ..
+    rm -rf "Python-3.10.0"
+
+    curl -O "https://www.python.org/ftp/python/2.7.0/Python-2.7.0.tgz"
+    tar xzf "Python-2.7.0.tgz"
+    rm "Python-2.7.0.tgz"
+    cd "Python-2.7.0" || exit
+    ./configure --enable-optimizations
+    make altinstall
+    cd ..
+    rm -rf "Python-2.7.0"
     echo
 
     echo ' [+] Instalando outras ferramentas...'
@@ -111,9 +116,9 @@ install_programs() {
     pip2 install pwntools
 
     echo ' [+] Instalando Rustscan...'
-    wget https://github.com/RustScan/RustScan/releases/download/2.0.1/rustscan_2.0.1_amd64.deb
-    sudo dpkg -i rustscan_2.0.1_amd64.deb
-    rm rustscan_2.0.1_amd64.deb
+    wget -O rustscan_latest_amd64.deb https://github.com/RustScan/RustScan/releases/latest/download/rustscan-x86_64.deb
+    sudo dpkg -i rustscan_latest_amd64.deb
+    rm rustscan_latest_amd64.deb
     echo
 
     echo ' [+] Limpando pacotes desnecessários...'
@@ -123,8 +128,7 @@ install_programs() {
 wordlist_tasks() {
     clear
     echo '# Configurando WORDLISTS'
-    echo '# Configurando WORDLISTS'
-    echo '# Configurando WORDLISTS'
+    echo
 
     echo ' [+] Descompactando rockyou.txt e convertendo em UTF-8...'
     gunzip /usr/share/wordlists/rockyou.txt.gz
@@ -145,19 +149,21 @@ wordlist_tasks() {
 change_background() {
     clear
     echo '# Configurando background'
-    echo '# Configurando background'
-    echo '# Configurando background'
+    echo
 
-    # gsettings set org.gnome.desktop.background picture-uri file:///caminho/para/sua/imagem.jpg
-    gsettings set org.gnome.desktop.background primary-color '#000000'
-
+    read -p "Digite o caminho completo para a imagem que deseja usar como papel de parede: " imagem
+    if [ -f "$imagem" ]; then
+        gsettings set org.gnome.desktop.background picture-uri "file://$imagem"
+        echo "Papel de parede alterado com sucesso."
+    else
+        echo "Arquivo não encontrado. Certifique-se de inserir o caminho correto para a imagem."
+    fi
 }
 
 disable_ipv6() {
     clear
     echo '# Configurando IPV6'
-    echo '# Configurando IPV6'
-    echo '# Configurando IPV6'
+    echo
     
     sudo sh -c 'echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf'
     sudo sh -c 'echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf'
@@ -167,8 +173,7 @@ disable_ipv6() {
 configure_terminal() {
     clear
     echo '# Configurando terminal'
-    echo '# Configurando terminal'
-    echo '# Configurando terminal'
+    echo
 
     sudo update-alternatives --config x-terminal-emulator
     # Selecione o número correspondente ao tilix na lista e pressione Enter
@@ -177,8 +182,7 @@ configure_terminal() {
 configure_flameshot() {
     clear
     echo '# Configurando flameshot'
-    echo '# Configurando flameshot'
-    echo '# Configurando flameshot'
+    echo
 
     gsettings set org.gnome.settings-daemon.plugins.media-keys screenshot "['Print']"
     gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
@@ -197,8 +201,7 @@ configure_flameshot() {
 # customize_prompt() {
 #     clear
 #     echo '# Customizando prompt'
-#     echo '# Customizando prompt'
-#     echo '# Customizando prompt'
+#     echo
 
 #     # echo 'PS1="%B%F{magenta}%n%f%b %F{158}%~:%f "' >> ~/.zshrc
 #     echo ' [+] Personalizando aliases no ~/.zshrc...'
