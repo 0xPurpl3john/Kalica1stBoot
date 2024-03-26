@@ -140,9 +140,8 @@ wordlist_tasks() {
     echo ' [+] Criando wordlist best_common.txt e best_big.txt em /usr/share/wordlists/dirb/...'
     wget https://github.com/d3fudd/Wordlists/releases/download/release/best_common.txt
     wget https://github.com/d3fudd/Wordlists/releases/download/release/best_big.txt
-    mv best_common.txt /usr/share/wordlists/dirb/best_common.txt
-    mv best_big.txt /usr/share/wordlists/dirb/best_big.txt
-    rm best_common.txt best_big.txt
+    sudo mv best_common.txt /usr/share/wordlists/dirb/best_common.txt
+    sudo mv best_big.txt /usr/share/wordlists/dirb/best_big.txt
     echo
 }
 
