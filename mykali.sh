@@ -74,25 +74,25 @@ install_programs() {
     sudo apt install -y flameshot vim tilix tmux zsh
     echo
 
-    echo ' [+] Instalando Python 3.10.0 e Python 2.7.0...'
-    curl -O "https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz"
-    tar xzf "Python-3.10.0.tgz"
-    rm "Python-3.10.0.tgz"
-    cd "Python-3.10.0" || exit
-    ./configure --enable-optimizations
-    make altinstall
-    cd ..
-    rm -rf "Python-3.10.0"
+    # echo ' [+] Instalando Python 3.10.0 e Python 2.7.0...'
+    # curl -O "https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz"
+    # tar xzf "Python-3.10.0.tgz"
+    # rm "Python-3.10.0.tgz"
+    # cd "Python-3.10.0" || exit
+    # ./configure --enable-optimizations
+    # make altinstall
+    # cd ..
+    # rm -rf "Python-3.10.0"
 
-    curl -O "https://www.python.org/ftp/python/2.7.0/Python-2.7.0.tgz"
-    tar xzf "Python-2.7.0.tgz"
-    rm "Python-2.7.0.tgz"
-    cd "Python-2.7.0" || exit
-    ./configure --enable-optimizations
-    make altinstall
-    cd ..
-    rm -rf "Python-2.7.0"
-    echo
+    # curl -O "https://www.python.org/ftp/python/2.7.0/Python-2.7.0.tgz"
+    # tar xzf "Python-2.7.0.tgz"
+    # rm "Python-2.7.0.tgz"
+    # cd "Python-2.7.0" || exit
+    # ./configure --enable-optimizations
+    # make altinstall
+    # cd ..
+    # rm -rf "Python-2.7.0"
+    # echo
 
     echo ' [+] Instalando outras ferramentas...'
     sudo apt install -y libwine wine wine32 winetricks kali-wallpapers-legacy nuclei dirsearch redis-tools figlet toilet fcrackzip freerdp2-x11 bettercap* jd-gui apktool smali dex2jar jadx dsniff libc6-dev:i386 libssl-dev:i386 seclists isc-dhcp-server proxychains tor mingw-w64 lynx libssl-dev python3-venv oracle-instantclient-sqlplus libreoffice bloodhound.py bloodhound crackmapexec systemd-resolved openvpn openvpn-systemd-resolved
