@@ -180,8 +180,11 @@ restart_system() {
             sudo reboot
         elif [ "$resposta" == "n" ]; then
             echo "Saindo..."
+            exit 0
         else
             echo "Resposta invalida, insira apenas 'y' ou 'n'"
+        fi
+    done
 }
 
 main
